@@ -5,7 +5,9 @@ author:
   - SJ McGeady
   - Esteban Fern\a'andez
 date: "July 2020"
-fontsize: 10pt
+# fontsize: 10pt
+header-includes:
+  - \usepackage[font={small}, labelfont={bf}]{caption}
 output:
   beamer_presentation:
     theme: "CambridgeUS"  
@@ -20,11 +22,32 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Logistic Regression
 
+```{r lr_setup}
+# load coefficients
+load("output/Case_Study_LR_Adjusted_End_point_Coefs.Rdata")
+
+# obtain index of covariates
+index <- which(rownames(coefs[[1]]) %in% c("FEMALE", "SMOKER", "AGE_GROUP"))
+```
+
 ### Case Study Findings
 
 ### Odds-Ratios Plots
 
-```{r cs_lr_plots,fig.align='center',out.width="95%"}
-knitr::include_graphics(here::here("figures/Case_Study_LR_Adjusted01.pdf"))
+```{r cs_lr_plots,fig.align='center',out.width="100%",fig.cap="Odds-ratios for univariate predictors of the composite end-point."}
+knitr::include_graphics(here::here("figures/Case_Study_LR_Adjusted_End_point.pdf"))
 ```
 
+### Odds-Ratios Table
+
+```{r cs1_lr_table}
+# show table
+knitr::kable(coefs[[1]][-index, ], digits = 3, caption = "Odds-ratios table for Chiapas.")
+```
+
+### Odds-Ratios Table
+
+```{r cs2_lr_table}
+# show table
+knitr::kable(coefs[[2]][-index, ], digits = 3, caption = "Odds-ratios table for Cuidad de México.")
+```
