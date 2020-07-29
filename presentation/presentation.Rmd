@@ -22,14 +22,39 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Logistic Regression
 
-```{r lr_setup}
-# load coefficients
-load(here::here("output/Case_Study_LR_Adjusted_Hospitalized_Coefs.Rdata"))
-```
-
 ### National-Level Findings
 
+```{r na_lr_setup}
+# load coefficients (national)
+load(here::here("output/National_LR_Adjusted_Outcomes_Coefs.Rdata"))
+```
+
+### Odds-Ratios Plots
+
+```{r na_lr_plots,fig.align='center',out.width="100%"}
+knitr::include_graphics(here::here("figures/National_LR_Adjusted_Outcomes.pdf"))
+```
+
+### Odds-Ratios Table
+
+```{r na1_lr_table}
+# show table
+knitr::kable(coefs[[1]], digits = 3, caption = "Odds-ratios table for Hospitalizations.")
+```
+
+### Odds-Ratios Table
+
+```{r na2_lr_table}
+# show table
+knitr::kable(coefs[[2]], digits = 3, caption = "Odds-ratios table for Deaths.")
+```
+
 ### Case Study Findings
+
+```{r cs_lr_setup}
+# load coefficients (case study)
+load(here::here("output/Case_Study_LR_Adjusted_Hospitalized_Coefs.Rdata"))
+```
 
 ### Odds-Ratios Plots
 
