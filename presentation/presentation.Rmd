@@ -1,0 +1,30 @@
+---
+title: Comorbidities and COVID-19 in Mexico
+subtitle:  A Comprehensive Data Analysis
+author: 
+  - SJ McGeady
+  - Esteban Fern\a'andez
+date: "July 2020"
+fontsize: 10pt
+output:
+  beamer_presentation:
+    theme: "CambridgeUS"  
+    slide_level: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Results
+
+## Logistic Regression
+
+### Case Study Findings
+
+### Odds-Ratios Plots
+
+```{r cs_lr_plots,fig.align='center',out.width="95%"}
+knitr::include_graphics(here::here("figures/Case_Study_LR_Adjusted01.pdf"))
+```
+
